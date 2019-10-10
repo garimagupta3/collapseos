@@ -47,7 +47,7 @@
 ; Pointer to a hook to call when a cmd name isn't found
 .equ	SHELL_CMDHOOK	SHELL_CMD_ARGS+PARSE_ARG_MAXCOUNT
 
-; Pointer to a routine to call at each shell loop iteration
+; Pointer to a routine to call at each shell loop interation
 .equ	SHELL_LOOPHOOK	SHELL_CMDHOOK+2
 .equ	SHELL_RAMEND	SHELL_LOOPHOOK+2
 
@@ -220,12 +220,18 @@ shellPrintErr:
 ;                 directive *just* after your '.inc "shell.asm"'. Voila!
 ;
 
-; Set memory pointer to the specified address (word).
+; Set memory pointer to the specified address (word) ors print the current value.
 ; Example: mptr 01fe
 shellMptrCmd:
-	.db	"mptr", 0b011, 0b001, 0
+	.db	"mptr", 0b111, 0b001, 0
 shellMptr:
 	push	hl
+
+	ld	a, (hl)
+	inc	hl
+	and (hl)
+	dec hl
+    jr z, .print
 
 	; reminder: z80 is little-endian
 	ld	a, (hl)
@@ -234,6 +240,7 @@ shellMptr:
 	ld	a, (hl)
 	ld	(SHELL_MEM_PTR), a
 
+.print:
 	ld	hl, (SHELL_MEM_PTR)
 	ld	a, h
 	call	printHex
