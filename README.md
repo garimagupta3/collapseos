@@ -1,6 +1,8 @@
 # Collapse OS
 
-*Bootstrap post-collapse technology*
+![](https://raw.githubusercontent.com/hsoft/collapseos/e186c86b9604a20ca28ac978b098f9f1aa53897f/logo.png)
+
+_Bootstrap post-collapse technology_
 
 Collapse OS is a z80 kernel and a collection of programs, tools and
 documentation that allows you to assemble an OS that, when completed, will be
@@ -21,14 +23,14 @@ tools.
 
 ## Organisation of this repository
 
-* `kernel`: Pieces of code to be assembled by the user into a kernel.
-* `apps`: Pieces of code to be assembled into "userspace" application.
-* `recipes`: collection of recipes that assemble parts together on a specific
-             machine.
-* `doc`: User guide for when you've successfully installed Collapse OS.
-* `tools`: Tools for working with Collapse OS from "modern" environments. Mostly
-           development tools, but also contains emulated zasm, which is
-           necessary to build Collapse OS from a non-Collapse OS machine.
+- `kernel`: Pieces of code to be assembled by the user into a kernel.
+- `apps`: Pieces of code to be assembled into "userspace" application.
+- `recipes`: collection of recipes that assemble parts together on a specific
+  machine.
+- `doc`: User guide for when you've successfully installed Collapse OS.
+- `tools`: Tools for working with Collapse OS from "modern" environments. Mostly
+  development tools, but also contains emulated zasm, which is
+  necessary to build Collapse OS from a non-Collapse OS machine.
 
 Each folder has a README with more details.
 
